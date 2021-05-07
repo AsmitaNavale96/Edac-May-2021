@@ -1,0 +1,53 @@
+ /*14.	Write a Java program to print an American flag on the screen.*/
+ 
+ 
+ 
+ // First method
+ /* class Flag
+  {
+  public static void main(String args[]) 
+  {
+  String p1 = "* * * * * * ==================================\n * * * * *  ==================================";
+  String p2 = "==============================================";
+  for (int i = 0; i < 4; i++) 
+  {
+   System.out.println(p1);
+  }
+  System.out.println("* * * * * * ==================================");
+  for (int i = 0; i < 6; i++)
+	  {
+   System.out.println(p2);
+	  } 
+  }
+  }*/
+  
+  
+  //Second method
+  class Flag
+  {
+  public static void main(String args[]) 
+  {
+   for (int i = 1; i <=15; i++) 
+   {
+        for (int j = 1; j <= 46; j++)
+	    {
+          if(i <= 9 && j <= 12)
+		  {
+              if((i+j)%2 == 0 && j != 12)
+			  {
+                 System.out.print("*");
+			  }
+              else 
+			  {
+                 System.out.print(" ");
+			  }
+          }
+		  else 
+		  {
+             System.out.print("=");
+          }
+        }
+        System.out.println();
+    }  
+   }
+  }
