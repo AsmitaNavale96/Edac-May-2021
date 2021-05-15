@@ -1,0 +1,128 @@
+OS -ASSIGNMENT 1
+
+Q.1  Display your current shell on terminal using echo command.
+ echo $ SHELL
+
+Q.2Display files and directories in present working directory using echo command
+echo `pwd`
+
+Q.3 Write a shell script to Print prime numbers from 1 to n . Read the value of n from user
+
+#!/bin/bash
+echo -n "Enter the number up to which prime no want to print  "
+read n
+
+  for (( i=2; i<=n ;i++))
+  do
+        flag=0
+     for ((j=2; j<i; j++))
+     do
+
+        if [ `expr $i % $j` -eq 0 ]
+        then
+           flag=1
+        fi
+     done
+
+          if [ $flag -eq 0 ]
+          then
+               echo -n " $i "
+          fi
+  done
+
+
+Q.4 Write a script to check given number is even or odd. 
+
+#!/bin/bash
+echo -n  " Enter a number >>>>>>  "
+read k
+if [ $k  -eq 0 ]
+then
+        echo " $k is natural number "
+else
+  if [ `expr $k % 2` -eq 0 ]
+  then
+          echo " $k is even number"
+  else
+          echo " $k is odd number"
+  fi
+ fi
+
+Q.5Write a shell script to convert a decimal number to binary number. 4. 
+
+#!/bin/bash
+echo "Enter a number: "
+read Num
+a=$(echo "obase=2;$Num" | bc)
+echo $a
+
+Q.6Write a script to swap 2  numbers using intermadiate variable.
+
+#!/bin/bash
+
+echo -n -n "Enter two numbers want to swap:  "
+read k
+read l
+temp=$k
+k=$l
+l=$temp
+
+echo "After swap : $k , $l "
+
+
+Q.7Write a script to swap 2  numbers without using intermadiate variable.
+
+#!/bin/bash
+echo "Enter two nos want to swwap"
+read k
+read l
+
+let k= k+l
+let l= k-l
+let k= k-l
+
+echo "After swap values are: $k , $l "
+
+
+Q.8 Write a script to reverse a number using while loop. Example: input : 12 output: 21 input : 213 output: 312 input : 125634 output:436521 
+
+#!/bin/bash
+echo "enter an NUMBER"
+read n
+reverse=0
+while [ $n != 0 ]
+do
+         reminder=$((n%10))
+         n=$((n/10))
+        reverse=$((reverse*10+reminder))
+
+ done
+  echo "reverse no is $reverse"
+
+
+Q.9 print multiplication table of integer using while loop. Example: 2 x 1 = 2 2 x 2 = 4
+
+#!/bin/bash
+for table in {1..10..1}
+do
+        i=2
+        mul=$((i*table))
+        echo $i "x" $table "=" $mul
+done
+
+
+Q.10 Get year as an input from user and find whether year is leap year or not.
+
+#!/bin/bash
+echo -n "Enter a year  "
+read y
+if [ `expr $y % 400` -eq 0 ]
+then
+        echo "$y is leap year"
+elif [ `expr $y % 4` -eq 0 ]
+then
+        echo "$y is a leap year"
+else [ `expr $y % 100` != 0 ]
+        echo "$y is not an leap year"
+fi
+
