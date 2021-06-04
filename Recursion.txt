@@ -1,0 +1,130 @@
+//1.factorial of a number using Recursion
+package Ads;
+import java.util.Scanner;
+public class Factorial {
+static int facto(int n)
+{
+	if(n > 1)
+	{
+		return(n*facto(n-1));
+	}
+	return 1;
+}
+public static void main(String[] args) {
+	System.out.println("enter the number: ");
+	Scanner sc = new Scanner(System.in);
+	int num = sc.nextInt();
+	System.out.print("Factorial of number is: ");
+	int fact = facto(num);
+	System.out.println(fact);
+}
+}
+
+//2.Fibonaci Series 
+package Ads;
+import java.util.Scanner;
+public class Fibonacci {
+static int fibseries(int n)
+{
+    if(n <= 1)
+	{
+		return n;
+	}
+		return fibseries(n-1)+fibseries(n-2);
+}
+public static void main(String[] args) {
+
+	System.out.println("enter the number: ");
+	Scanner sc = new Scanner(System.in);
+	int num = sc.nextInt();
+	System.out.print("fibonacci series is:");
+	for(int i=0;i<num;i++)
+	{
+		
+		System.out.println(fibseries(i));
+	}
+}
+}
+
+//3.java program to check number is palindrome or not using Recursion
+package Ads;
+import java.util.Scanner;
+public class PalindromeNumber {
+	static int rev = 0;
+	static int rem = 0;
+static int reverse(int n)
+{
+	if(n != 0)
+	{
+	rem = n%10;
+	rev = rev*10+rem;
+	reverse(n/10);
+	return rev;
+	}
+	return 1;
+}
+public static void main(String[] args) {
+	System.out.println("enter the number: ");
+	Scanner sc = new Scanner(System.in);
+	int num = sc.nextInt();
+	System.out.println();
+	int ans = reverse(num);
+	System.out.print("reverse number: ");
+	System.out.println(ans);
+	if(ans == num)
+	{
+		System.out.println("number is palindrome");
+	}
+	else
+	{
+		System.out.println("number is not palindrome");
+	}
+}
+}
+
+//4.java program using recursion to print the series of number
+package Ads;
+public class SeriesofNumbers {
+	static int series(int n,int i)
+	{
+		if(i<=n)
+		{
+		System.out.println(i+" ");
+			return (series(n,++i));
+		}
+		else
+		{
+		return 0;
+		}
+	}
+public static void main(String[] args) {
+	System.out.print("Series of numbers is:");
+	series(10,1);
+}
+}
+
+//5.java program to find sum of series using recursion
+package Ads;
+import java.util.Scanner;
+public class SumofNumbers {
+	static int sumseries(int n)
+	{
+		if(n != 0)
+		{
+			return (n+sumseries(n-1));
+		}
+		else
+		{
+		return 0;
+		}
+		
+	}
+public static void main(String[] args) {
+	System.out.println("enter the number: ");
+	Scanner sc = new Scanner(System.in);
+	int num = sc.nextInt();
+	System.out.print("Series of numbers is:");
+	int sum = sumseries(num);
+	System.out.println(sum);
+}
+}
