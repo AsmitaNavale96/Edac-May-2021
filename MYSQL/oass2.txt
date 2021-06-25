@@ -1,0 +1,22 @@
+1) Which field of the Customers table is the primary key?
+ Ans: cnum
+
+2) What is the 4th column of the Customers table?
+ Ans: RATING
+
+3) What is another word for row? For column?
+ Ans:- Row-tuples ,column -attributes
+
+4) Why isn’t it possible to see the first five rows of a table
+Ans :-1) rows inside the table are not in sequential manner
+      2)when you insert into the table whenever it finds the empty 
+       space  in the DB server HD,it will strore the row there
+      3)the reason is the RDMS does this is to speed up the insert
+      statement.
+      4)when you select from a table the order of output depends on
+      the row address (searching is always sequential)
+      5)when you select from the table, the order of row in the 
+      output will be always in ascending order of row address
+      6)whwn you update a row,if the row length is increasing the 
+       row address may change(its only in the case of varchar that the row  length may increase).
+       hence its not possible to see the first 'N' rows inserted in a table.

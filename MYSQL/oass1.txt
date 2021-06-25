@@ -1,0 +1,105 @@
+Create the following tables with the given structures and insert sample data as specified: -
+A) SALESPEOPLE
+Snum number(4)
+Sname varchar2(10)
+City varchar2(10)
+Comm number(3,2)
+ans : 
+create table SALESPEOPLE
+(
+Snum number(4),
+Sname varchar2(10),
+City varchar2(10),
+Comm number(3,2)
+);
+
+
+B) CUSTOMERS
+Cnum number(4)
+Cname varchar2(10)
+City varchar2(10)
+Rating number(4)
+Snum number(4)
+ans:
+create table CUSTOMERS
+(
+Cnum numbers(4),
+Cname varchar2(10),
+City varchar 2(10),
+Rating number(4),
+Snum number(4)
+);
+
+
+C) ORDERS
+Onum number(4)
+Amt number(7,2)
+Odate date
+Cnum number(4)
+Snum number(4)
+ans:
+create table ORDERS
+(
+Onum number(4),
+Amt number(7,2),
+Odate date,
+Cnum number(4),
+Snum number(4)
+);
+
+
+SALESPEOPLE
+SNUM SNAME CITY COMM
+1001 Peel London .12
+1002 Serres San Jose .13
+1004 Motika London .11
+1007 Rifkin Barcelona .15
+1003 Axelrod New York .10
+ans:
+insert into SALESPEOPLE values(1000,'Peel','London',.12);
+insert into SALESPEOPLE values(1002,'Serres','San Josh',.13);
+insert into SALESPEOPLE values(1004,'Motika','London',.11);
+insert into SALESPEOPLE values(1007,'Rifkin','Barcelona',.15);
+insert into SALESPEOPLE values(1003,'Axelord','New York',.10);
+
+CUSTOMERS
+CNUM CNAME CITY RATING SNUM
+2001 Hoffman London 100 1001
+2002 Giovanni Rome 200 1003
+2003 Liu San Jose 200 1002
+2004 Grass Berlin 300 1002
+2006 Clemens London 100 1001
+2008 Cisneros San Jose 300 1007
+2007 Pereira Rome 100 1004
+ans:
+insert into Customers values(2001,'Hoffman',London',100,1001);
+insert into Customers values(2002,'Giovanni',Rome',200,1003);
+insert into Customers values(2003,'Liu',San Jose',200,1002);
+insert into Customers values(2004,'Grass',Berlin',300,1002);
+insert into Customers values(2006,'Clemens',London',100,1001);
+insert into Customers values(2008,'Cisneros',San Josh',300,1007);
+insert into Customers values(2007,'Pereira',Rome',100,1004);
+
+ORDERS
+ONUM AMT ODATE CNUM SNUM
+3001 18.69 03-OCT-1990 2008 1007
+3003 767.19 03- OCT -1990 2001 1001
+3002 1900.10 03- OCT -1990 2007 1004
+3005 5160.45 03- OCT -1990 2003 1002
+3006 1098.16 03- OCT -1990 2008 1007
+3009 1713.23 04- OCT -1990 2002 1003
+3007 75.75 04- OCT -1990 2004 1002
+3008 4723.00 05- OCT -1990 2006 1001
+3010 1309.95 06- OCT -1990 2004 1002
+3011 9891.88 06- OCT -1990 2006 100
+ans: 
+insert into ORDERS values(3001,18.69,03-OCT-1990,2008,1007);
+insert into ORDERS values(3003,767.19,03-OCT-1990,2001,1001);
+insert into ORDERS values(3002,1900.10,03-OCT-1990,2007,1004);
+insert into ORDERS values(3005,5160.45,03-OCT-1990,2003,1002);
+insert into ORDERS values(3006,1098.16,03-OCT-1990,2008,1007);
+insert into ORDERS values(3009,1713.23,04-OCT-1990,2002,1003);
+insert into ORDERS values(3007,75.75,04-OCT-1990,2004,1002);
+insert into ORDERS values(3008,4723.00,05-OCT-1990,2006,1001);
+insert into ORDERS values(3010,1309.95,06-OCT-1990,2004,1002);
+insert into ORDERS values(3011,9891.88,06-OCT-1990,2006,1001);

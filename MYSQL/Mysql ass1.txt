@@ -1,0 +1,183 @@
+1. Create the table SEMP with the following structure:- 
+ 
+EMPNO CHAR(4) 
+EMPNAME CHAR(20) 
+BASIC FLOAT(9,2) 
+DEPTNO CHAR(2) 
+DEPTHEAD CHAR(4)
+ans : 
+create database cdac;
+show databases;
+use database cdac;
+create table SEMP
+(
+EMPNO char(4),
+EMPNAME char(20) ,
+BASIC float(9,2),
+DEPTNO char(2),
+DEPTHEAD char(4) 
+);
+
+2. Create the table SDEPT with the following structure:- 
+ 
+DEPTNO CHAR(2) 
+DEPTNAME CHAR(15)
+
+ans:
+create table SDEPT
+(
+DEPTNO CHAR(2) ,
+DEPTNAME CHAR(15)
+);
+
+3. Insert into the SDEPT table the following values:- 
+ 
+10, Development 
+20, Training 
+
+ans:
+insert into SDEPT
+values(10,'Development');
+insert into SDEPT
+values(20,'Training');
+to view updated table : select * from  SDEPT;
+to view perticular column : select DEPTNO from  SDEPT;
+
+4. Insert into the SEMP table the following values:- 
+ 
+0001, SUNIL, 6000, 10 
+0002, HIREN, 8000, 20 
+0003, ALI, 4000, 10, 0001 
+0004, GEORGE, 6000, 0002
+
+ans: 
+insert into SEMP
+values('0001', 'SUNIL', 6000, '10' ,null);
+insert into SEMP
+values('0002', 'HIREN', 8000, '20',null );
+insert into SEMP
+values('0003', 'ALI', 4000, '10','0001' );
+insert into SEMP
+values('0004', 'GEORGE', 6000, null,'0002' );
+to view updated table : select * from  SEMP;
+
+Create S, P, J, SPJ tables as specified below and insert a few rows in each table:- 
+ 
+SUPPLIER 
+(S#, Sname, Status, City) 
+- S 
+PARTS 
+(P#, Pname, Color, Weight, City) 
+- P 
+PROJECTS 
+(J#, Jname, City) 
+- J 
+SUPPLIER-PARTS-PROJECT 
+(S#, P#, J#, Qty) 
+ 
+- SPJ 
+Sample data for S# column:- ‘S1’, ‘S2’, ‘S3’, etc. 
+Sample data for P# column:- ‘P1’, ‘P2’, ‘P3’, etc. 
+Sample data for J# column:- ‘J1’, ‘J2’, ‘J3’, etc. 
+Sample data for Status column:- 10, 20, 30, etc. 
+ 
+Write the SELECT queries to do the following:-
+
+ans:
+create table S
+(
+`S#` CHAR(10) ,
+Sname CHAR(15),
+Status CHAR(15),
+City CHAR(15)
+);
+
+create table P
+(
+`P#` CHAR(10) ,
+Pname CHAR(15),
+Color CHAR(15),
+Weight char(15),
+City CHAR(15)
+);
+
+create table J
+(
+`J#` CHAR(10) ,
+Jname CHAR(15),
+City CHAR(15)
+);
+
+create table SPJ
+(
+`S#` CHAR(10) ,
+`P#` CHAR(15),
+`J#` CHAR(15),
+Qty CHAR(15)
+);
+
+
+insert into SPJ
+values('S1', ' P1', 'J1', '12');
+insert into SPJ
+values('S2', ' P2', 'J2', '40');
+insert into SPJ
+values('S3', ' P3', 'J3', '44');
+
+insert into J
+values('J1', ' xx','London');
+insert into J
+values('J2', ' yy', 'Paris');
+insert into J
+values('J3', ' zz','Athens');
+
+
+5. Display all the data from the S table.
+insert into S
+values('S1', ' a', '10', 'London');
+insert into S
+values('S2', ' b', '20', 'Paris');
+insert into S
+values('S3', ' c', '30', 'Athens');
+select * from S;
+
+6. Display only the S# and SNAME fields from the S table.
+select `S#`,Sname from S;
+
+7. Display the PNAME and COLOR from the P table for the CITY=”London”.
+insert into P
+values('P1', 'd', 'Red', '88','London');
+insert into P
+values('P2', 'e', 'Blue','60', 'Paris');
+insert into P
+values('P3', 'f', 'Green','45' ,'Athens');
+select * from P;
+select PNAME,COLOR from P where CITY="London";
+
+8. Display all the Suppliers from London. 
+select * from S where CITY="London";
+select Sname from S where CITY="Paris";
+
+9. Display all the Suppliers from Paris or Athens.
+select * from S where CITY="Paris" or CITY="Athens";
+select Sname from S where CITY="Paris" or CITY="Athens";
+
+10. Display all the Projects in Athens.
+select * from P where CITY = "Athens";
+select Pname from P where CITY = "Athens";
+
+11. Display all the Partnames with the weight between 12 and 14 (inclusive of both).
+select Pname from P where Weight between 12 and 14;
+
+12. Display all the Suppliers with a Status greater than or equal to 20.
+select sname from S Where status >= 20;
+
+13. Display all the Suppliers except the Suppliers from London. 
+select sname from S where city != "London";
+
+14. Display only the Cities from where the Suppliers come from.
+select City from S ;
+
+15. Assuming that the Part Weight is in GRAMS, display the same in 
+MILLIGRAMS and KILOGRAMS.
+select `P#`, Pname, Color, Weight,weight/1000 as "Kilograms",weight *1000 as "Miligram", City from P;
